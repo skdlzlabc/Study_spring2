@@ -1,0 +1,43 @@
+//2019.8.21 Thread  & Runnable
+package edu_8_21;
+
+public class Test8_Thread {
+	public static void main(String[] args) {
+		
+//		#1. 0~4,000,000까지 출력하는 프로그램
+		long time = System.currentTimeMillis();
+		for (int i = 0; i <= 4_000_000; i++) {
+//			System.out.println(i);
+		}
+		System.out.println("일반 소요시간: "+ (System.currentTimeMillis() - time) + "ms");
+		
+//		#2. 1의 작업을 다중쓰레드로 처리하는 프로그램
+		
+		//방법1. thread
+		ThreadSample th1 = new ThreadSample();
+		th1.start();
+		
+		//방법2. runnable interface
+//		RunnableSample th2 = new RunnableSample();
+//		new Thread(th2).start();
+		
+	}//end of main
+}//end of class
+
+class ThreadSample extends Thread{
+	@Override
+	public void run() {
+		long time2 = System.currentTimeMillis();
+		for (int i = 0; i <= 4000000; i++) {
+			System.out.println(i);
+		}
+		System.out.println("Thead 소요시간: "+ (System.currentTimeMillis() - time2) + "ms");
+	}
+}//end of ThreadSample class 
+
+//class RunnableSample implements Runnable{
+//	@Override
+//	public void run() {
+//		System.out.println("run runnable");
+//	}
+//}//end of RunnableSample class 

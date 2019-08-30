@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+	<!-- #1 -->
+	<!-- <aop:aspectj-autoproxy /> -->
+	<!-- <aop:config> -->
+	<!-- <aop:pointcut expression="execution(public * com.hanwha.ex..*Info(..))" 
+		id="allPointcut"/> -->
+	<!-- <aop:aspect ref="logAop"> -->
+	<!-- <aop:around pointcut-ref="allPointcut" method="loggerAop"/> -->
+	<!-- </aop:aspect> -->
+	<!-- </aop:config> -->
+
+	<!-- #2 -->
+	<!-- <aop:config> -->
+	<!-- <aop:pointcut expression="execution(public * com.hanwha.ex..*Info(..))" 
+		id="allPointcut"/> -->
+	<!-- <aop:aspect ref="logAop"> -->
+	<!-- <aop:after pointcut-ref="allPointcut" method="loggerAop2"/> -->
+	<!-- <aop:after-returning pointcut-ref="allPointcut" method="loggerAop2"/> -->
+	<!-- <aop:after-throwing pointcut-ref="allPointcut" method="loggerAop2"/> -->
+	<!-- <aop:before pointcut-ref="allPointcut" method="loggerAop2"/> -->
+	<!-- <aop:around pointcut-ref="allPointcut" method="loggerAop2"/> -->
+	<!-- </aop:aspect> -->
+	<!-- </aop:config> -->
+
+	<!-- #3 -->
+<!-- 	<aop:config> -->
+<!-- 		<aop:pointcut expression="execution(public * com.hanwha.ex..*Info(..))" -->
+<!-- 			id="allPointcut" /> -->
+<!-- 		<aop:aspect ref="logAop"> -->
+<!-- 			<aop:after pointcut-ref="allPointcut" method="afterAdvice"/> -->
+<!-- 			<aop:after-returning pointcut-ref="allPointcut" method="afterReturningAdvice"/> -->
+<!-- 			<aop:after-throwing pointcut-ref="allPointcut" method="afterThrowingAdvice"/> -->
+<!-- 			<aop:around pointcut-ref="allPointcut" method="aroundAdvice"/> -->
+<!-- 			<aop:before pointcut-ref="allPointcut" method="beforeAdvice"/> -->
+<!-- 		</aop:aspect> -->
+<!-- 	</aop:config> -->
+	
+	<!-- #4 -->
+	<bean id="testService" class="com.hanwha.ex.TestService" />	 <!-- Bean객체 등록 -->
+	
+	<aop:config>
+		<aop:pointcut expression="execution(public * com.hanwha.ex..*Param(..))"
+			id="allPointcut" />
+		<aop:aspect ref="logAop">
+			<aop:around pointcut-ref="allPointcut" method="getParamInfoAroundCallAdvice"/>
+			<aop:around pointcut-ref="allPointcut" method="getParamInfoCloseAdvice"/>
+		</aop:aspect>
+	</aop:config>
+
+	<bean id="logAop" class="com.hanwha.ex.LogAop" />
+
+	<bean id="student" class="com.hanwha.ex.Student">
+		<property name="name" value="홍길동" />
+		<property name="age" value="10" />
+		<property name="gradeNum" value="3" />
+		<property name="classNum" value="5" />
+	</bean>
+
+	<bean id="worker" class="com.hanwha.ex.Worker">
+		<property name="name" value="홍길순" />
+		<property name="age" value="35" />
+		<property name="job" value="개발자" />
+	</bean>
+
+</beans>

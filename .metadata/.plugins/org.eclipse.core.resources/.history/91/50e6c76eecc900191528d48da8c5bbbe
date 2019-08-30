@@ -1,0 +1,21 @@
+package com.hanwha.ict.dto;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+@Service("IStudentService")
+public class StudentServiceImpl implements IStudentService{
+	
+	@Override
+	public String printAll(String str) {
+		return "printAll() :"+str;
+	}
+
+	@Override
+	public List<Student> getList() {
+		return null;
+	}
+	
+	
+}

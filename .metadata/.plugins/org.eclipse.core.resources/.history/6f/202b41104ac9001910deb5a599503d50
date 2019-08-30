@@ -1,0 +1,8 @@
+package com.hanwha.ict;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public interface IService {
+	public void printAll();
+}

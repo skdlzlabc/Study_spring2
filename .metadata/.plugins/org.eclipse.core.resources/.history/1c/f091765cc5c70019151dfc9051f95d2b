@@ -1,0 +1,50 @@
+package com.javalec.ex;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class MainClass {
+	public static void main(String[] args) {
+		//#1
+//		String configLocation= "classpath:applicationCTX.xml";
+//		AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
+//		MyCalculator myCalculator = ctx.getBean("mycalculator",MyCalculator.class);
+//		//컨테이너 안에 있는 myCalculator객체를 가져와서 갖다 쓰면돼
+//
+//		myCalculator.add();
+//		myCalculator.sub();
+//		myCalculator.mul();
+//		myCalculator.div();
+//		calculator를 di로 주입, xml에 선언, 함수인자 똑같이
+		
+		//#2
+//		String configLocation= "classpath:applicationCTX.xml";
+//		AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
+//		HanwhaCompany hanwhaCompany = ctx.getBean("hanwhacompany",HanwhaCompany.class);
+//		HanwhaCompany hanwhaCompany1 = ctx.getBean("hanwhacompany1",HanwhaCompany.class);
+//		HanwhaCompany hanwhaCompany2 = ctx.getBean("hanwhacompany2",HanwhaCompany.class);
+//		System.out.println(hanwhaCompany.toString());
+//		System.out.println(hanwhaCompany1.toString());
+//		System.out.println(hanwhaCompany2.toString());
+		
+		//#3
+		String configLocation= "classpath:applicationCTX.xml";
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
+		HanwhaGroup hanwhaGroup = ctx.getBean("hanwhagroup",HanwhaGroup.class);
+		HanwhaGroup hanwhaGroup1 = ctx.getBean("hanwhagroup1",HanwhaGroup.class);
+		HanwhaGroup hanwhaGroup2 = ctx.getBean("hanwhagroup2",HanwhaGroup.class);
+		
+		for (int i = 0,j=0; i < 3; i++) {
+			System.out.print(hanwhaGroup.getCompanySector(j));
+			System.out.print(hanwhaGroup.getCompanyName(i));
+			System.out.print(hanwhaGroup.getGroupPresident(i));
+			System.out.print(hanwhaGroup.getCompanyEmployeeCount(i));
+			System.out.print(hanwhaGroup.getCompanyName(i+1));
+			System.out.print(hanwhaGroup.getGroupPresident(i+1));
+			System.out.println(hanwhaGroup.getCompanyEmployeeCount(i+1));
+		}
+	}
+}

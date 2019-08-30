@@ -1,0 +1,58 @@
+package db.dao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import db.conn.DBConnection;
+import db.dto.Employee;
+public class EmployeeDao {
+	public boolean insertData(Employee e){
+		boolean isSuccess = true;
+		Connection conn = DBConnection.getConnection();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement("INSERT INTO students(name,employee_number,dept,gender,duty) "
+					+ "VALUES(?,?,?,?,?);");
+			pstmt.setString(1,e.getName());
+			pstmt.setString(2,e.getEmpNo());
+			pstmt.setString(3,e.getDept());
+			pstmt.setString(4,e.getGender());
+			pstmt.setString(5,e.getDuty());
+			if(pstmt.executeUpdate() ==0){
+				isSuccess = false;
+			}
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+			isSuccess = false;
+		}finally{
+			DBConnection.closeConn();
+		}
+		return isSuccess;
+	}
+	
+	public void selectData(){
+		Connection conn = DBConnection.getConnection();
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT dept, name, employee_number,gender FROM students;");
+			List<Employee> empList = new ArrayList<Employee>();
+			
+			while(rs.next()){
+				Employee e = new Employee(rs.getString(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getString(5));
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+}

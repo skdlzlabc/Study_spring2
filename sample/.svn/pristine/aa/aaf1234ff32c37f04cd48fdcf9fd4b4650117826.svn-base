@@ -1,0 +1,24 @@
+//8.21
+package test;
+
+public class Test3 {
+	public static void main(String[] args) {
+
+//		1.StringBuffer	//동기화 되었어, 좀 느려
+		StringBuffer sbf = new StringBuffer();
+		sbf	.append(true)
+			.append("\n")
+			.append('a')
+			.append("\n")
+			.append("hi");
+		System.out.println(sbf);
+		
+//		2.StringBuilder	//동기화 안되있어, 빨라
+		StringBuilder sb = new StringBuilder();
+		sb	.append("a")
+			.append("\n")
+			.append("b")
+			.append("\n");
+		System.out.println(sb);
+	}
+}

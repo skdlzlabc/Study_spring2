@@ -1,0 +1,58 @@
+<%@page import="java.util.List"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>사원 정보</title>
+<style>
+	.emp_table{
+		border-collapse: collapse;
+	}
+	
+	.emp_table > thead > tr{
+		background: #de690a;
+	}
+	.win{
+		background: red;
+		color: #ffffff
+	}
+</style>
+</head>
+<body>
+	<table class="emp_table" border="1">
+		<caption>회사정보</caption>
+		<thead>
+			<tr>
+				<th>회사</th>
+				<th>부서</th>
+				<th>대표님</th>
+				<th>인원</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<c:forEach var="item" items="${requestScope.hanwhaList}">
+				<tr>
+					<td>${item.companyName}</td>
+					<td>${item.companySector}</td>
+					<td>${item.groupPresident}</td>
+					<td>${item.companyEmployeeCount}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+
+</body>
+</html>

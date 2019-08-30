@@ -1,0 +1,5 @@
+package com.hanwha.ict;
+
+public interface IService {
+	public void printAll();
+}

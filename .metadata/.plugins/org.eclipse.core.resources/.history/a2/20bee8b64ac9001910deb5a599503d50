@@ -1,0 +1,8 @@
+package com.hanwha.ict;
+
+public class ServiceImpl implements IService{
+	@Override
+	public void printAll() {
+		System.out.println("printAll()");
+	}
+}

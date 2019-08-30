@@ -1,0 +1,41 @@
+package com.hanwha.example.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.hanwha.example.dto.BoardVO;
+
+@Component
+public class BoardDao {
+
+	@Autowired
+	private SqlSession sqlSession;
+	
+	// 01. 게시글 작성
+	public void insert(BoardVO vo) {
+		sqlSession.insert("board.insert",vo);
+	}
+
+	// 02. 게시글 상세보기
+	public int selectOne(int code) {
+		return sqlSession.selectOne("board.view",code);
+	}
+
+	// 03. 게시글 수정
+	public int update(BoardVO vo,BoardVO voModified) {
+		return sqlSession.update("board.updateArticle",voModified);
+	}
+	
+	// 04. 게시글 삭제
+	public int delete(int key) {
+		return sqlSession.delete("board.deleteArticle",key);
+	}
+	
+	// 05. 게시글 전체 목록
+	public int selectAll() {
+		return sqlSession.delete("board.listAll");
+	}
+}

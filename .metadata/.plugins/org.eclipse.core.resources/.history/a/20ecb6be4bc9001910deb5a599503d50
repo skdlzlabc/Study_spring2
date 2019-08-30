@@ -1,0 +1,10 @@
+package com.hanwha.ict;
+
+import com.hanwha.ict.IService;
+
+public class ServiceImpl implements IService{
+	@Override
+	public String printAll(String str) {
+		return "printAll() :"+str;
+	}
+}

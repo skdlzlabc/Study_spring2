@@ -1,0 +1,29 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import db.conn.DBConnection;
+
+public class EmployeeDao2 {
+	private boolean isSuccecss;
+
+	public void insertData(Employee e){
+		Connection conn = DBConnection.getConnection();
+		PreparedStatement pstmt = conn.prepareStatement("INSERT INTO "
+				+ "students(dept,dyty,name,employee_number,gender) "
+				+ "VALUES (?,?,?,?,?)");
+		pstmt.setString(1,e.getDept());
+		pstmt.setString(2,e.getDuty());
+		pstmt.setString(3,e.getName());
+		pstmt.setString(4,e.getEmpno());
+		pstmt.setString(5,e.getGender());
+		
+		if(pstmt.executeUpdate() ==0){
+			isSuccecss = false;
+		}
+		
+		
+		e.getName();
+	}
+}//end of class

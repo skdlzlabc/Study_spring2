@@ -1,0 +1,54 @@
+// DB와 연동하는 객체
+package db.conn;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.SQLSyntaxErrorException;
+
+public class DBConnection {
+	
+	private static Connection conn = null;
+	private final static String URL = "jdbc:mysql://172.26.59.36:3306/edu_db?"
+			+ "characterEncoding=UTF-8&serverTimezone=UTC";
+	private final static String ID = "edu_user";
+	private final static String PWD = "edu_user_pw!";
+	
+	public static Connection getConnection(){
+		try {
+			if (conn == null || conn.isClosed()){
+				connect();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return conn;
+	}
+	
+	public static void connect(){
+		try {
+			// 1. 드라이버 로딩
+			Class.forName("com.mysql.cj.jdbc.Driver"); 
+			
+			// 2. 연결하기
+			conn = DriverManager.getConnection(URL, ID, PWD);
+			
+		} catch (ClassNotFoundException | SQLException e) { 
+			e.printStackTrace();
+		}
+	}
+	
+	public static void closeConn(){
+		if (conn != null){
+			try {
+				if (!conn.isClosed()){
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+} 

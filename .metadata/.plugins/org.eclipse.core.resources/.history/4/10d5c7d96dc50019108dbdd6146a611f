@@ -1,0 +1,32 @@
+package db.conn;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnection {
+	
+	//db connection을 하나만 만들어 계속 쓰게 하려고 static
+	private static Connection conn = null;
+	private final static String url = "jdbc:mysql://172.26.59.36:3305/edu_db?"
+			+"characterEncodig=UTF-8&serverTimezone=UTC";
+	private final static String id = "edu_user"; 
+	private final static String pwd = "edu_user_pw!";
+	
+	public static void connect(){
+		
+		try {
+			//1.드라이버 로딩
+			//동적으로 객체를 생성
+			Class.forName("com.mysql.jdbc.Driver");	
+			
+			conn = DriverManager.getConnection(url,id,pwd);
+			
+		} catch (ClassNotFoundException e) {	//동적으로 객체를 만들려는데 못찾는경우 날 수 있는 오류
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+	}//end of main
+}//end of class

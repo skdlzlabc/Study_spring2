@@ -1,0 +1,5 @@
+package dao.copy3;
+
+public class Employee {
+
+}

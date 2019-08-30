@@ -1,0 +1,46 @@
+package com.javalec.ex;
+
+import java.util.List;
+
+public class HanwhaGroup {
+	private List<HanwhaCompany> hanwhaCompanyList;
+
+	public List<HanwhaCompany> getHanwhaCompanyList() {
+		return hanwhaCompanyList;
+	}
+
+	public void setHanwhaCompanyList(List<HanwhaCompany> hanwhaCompanyList) {
+		this.hanwhaCompanyList = hanwhaCompanyList;
+	}
+
+	public String getCompanySector(int i){
+		return hanwhaCompanyList.get(i).getCompanySector();
+	}
+	
+	public String getCompanyName(int i){
+		return hanwhaCompanyList.get(i).getCompanyName();
+	}
+	
+	public String getGroupPresident(int i){
+		return hanwhaCompanyList.get(i).getGroupPresident();
+	}
+	
+	public int getCompanyEmployeeCount(int i){
+		int sum =0;
+		for (HanwhaCompany h : hanwhaCompanyList) {
+			sum+= h.getCompanyEmployeeCount();
+		}
+		return sum;
+	}
+	
+	public String printAll(){
+		String str;
+		
+	}
+	
+	@Override
+	public String toString() {
+		return "HanwhaGroup [hanwhaCompanyList=" + hanwhaCompanyList + "]";
+	}
+	
+}

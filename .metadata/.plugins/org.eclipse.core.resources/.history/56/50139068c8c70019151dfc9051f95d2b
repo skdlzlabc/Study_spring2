@@ -1,0 +1,70 @@
+package com.javalec.ex;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class MainClass {
+	public static void main(String[] args) {
+		// #1
+		// String configLocation= "classpath:applicationCTX.xml";
+		// AbstractApplicationContext ctx = new
+		// GenericXmlApplicationContext(configLocation);
+		// MyCalculator myCalculator =
+		// ctx.getBean("mycalculator",MyCalculator.class);
+		// //컨테이너 안에 있는 myCalculator객체를 가져와서 갖다 쓰면돼
+		//
+		// myCalculator.add();
+		// myCalculator.sub();
+		// myCalculator.mul();
+		// myCalculator.div();
+		// calculator를 di로 주입, xml에 선언, 함수인자 똑같이
+
+		// #2
+		// String configLocation= "classpath:applicationCTX.xml";
+		// AbstractApplicationContext ctx = new
+		// GenericXmlApplicationContext(configLocation);
+		// HanwhaCompany hanwhaCompany =
+		// ctx.getBean("hanwhacompany",HanwhaCompany.class);
+		// HanwhaCompany hanwhaCompany1 =
+		// ctx.getBean("hanwhacompany1",HanwhaCompany.class);
+		// HanwhaCompany hanwhaCompany2 =
+		// ctx.getBean("hanwhacompany2",HanwhaCompany.class);
+		// System.out.println(hanwhaCompany.toString());
+		// System.out.println(hanwhaCompany1.toString());
+		// System.out.println(hanwhaCompany2.toString());
+
+		// #3
+		String configLocation = "classpath:applicationCTX.xml";
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
+		HanwhaGroup hanwhaGroup = ctx.getBean("hanwhagroup", HanwhaGroup.class);
+		HanwhaGroup hanwhaGroup1 = ctx.getBean("hanwhagroup1", HanwhaGroup.class);
+		HanwhaGroup hanwhaGroup2 = ctx.getBean("hanwhagroup2", HanwhaGroup.class);
+
+		System.out.print(hanwhaGroup.getCompanySector(0)+"//"); // 0, 1, 2
+		System.out.print(hanwhaGroup.getCompanyName(0)+","); // 0 ,1
+		System.out.print(hanwhaGroup.getGroupPresident(0)+",");
+		System.out.print(hanwhaGroup.getCompanyEmployeeCount(0)+"/");
+		System.out.print(hanwhaGroup.getCompanyName(1)+",");
+		System.out.print(hanwhaGroup.getGroupPresident(1)+",");
+		System.out.println(hanwhaGroup.getCompanyEmployeeCount(1)+"/");
+		
+//		System.out.print(hanwhaGroup1.getCompanySector(1)); // 0, 1, 2
+//		System.out.print(hanwhaGroup1.getCompanyName(0)); // 0 ,1
+//		System.out.print(hanwhaGroup1.getGroupPresident(0));
+//		System.out.print(hanwhaGroup1.getCompanyEmployeeCount(0));
+//		System.out.print(hanwhaGroup1.getCompanyName(1));
+//		System.out.print(hanwhaGroup1.getGroupPresident(1));
+//		System.out.println(hanwhaGroup1.getCompanyEmployeeCount(1));
+//
+//		System.out.print(hanwhaGroup2.getCompanySector(2)); // 0, 1, 2
+//		System.out.print(hanwhaGroup2.getCompanyName(0)); // 0 ,1
+//		System.out.print(hanwhaGroup2.getGroupPresident(0));
+//		System.out.print(hanwhaGroup2.getCompanyEmployeeCount(0));
+//		System.out.print(hanwhaGroup2.getCompanyName(1));
+//		System.out.print(hanwhaGroup2.getGroupPresident(1));
+//		System.out.println(hanwhaGroup2.getCompanyEmployeeCount(1));
+	}
+}

@@ -1,0 +1,32 @@
+package com.hanwha.ex;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+
+@Aspect
+public class LogAop {
+	// @Pointcut("bean(*)")		//~ker로 끝나는 빈에만 적용
+	private void pointcutMethod() {
+	}
+	
+	// @Around
+	public Object loggerAop(ProceedingJoinPoint joinpoint) throws Throwable {
+		String signatureStr = joinpoint.getSignature().toShortString();
+		System.out.println( signatureStr + " is start.");
+		long st = System.currentTimeMillis();
+		
+		try {
+			Object obj = joinpoint.proceed();
+			return obj;
+		} finally {
+			long et = System.currentTimeMillis();
+			System.out.println( signatureStr + " is finished.");
+			System.out.println( signatureStr + " 경과시간 : " + (et - st));
+		}
+	}
+	
+	// @Before
+	public void beforAdvice() {
+		System.out.println("beforAdvice()");
+	}
+}

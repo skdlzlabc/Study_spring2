@@ -1,0 +1,36 @@
+//2019.8.23
+package servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import db.dto.Employee;
+
+public class EmployeeServlet extends HttpServlet{
+
+	//servlet 요청이 들어오면 일로 들어와서 데이터 넘기거나 화면으로 넘겨줌!
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		List<Employee> empList = new ArrayList<Employee>();
+		empList.add(new Employee("전우형", "201903670", "금융", "남", "ICT 서비스"));
+		empList.add(new Employee("이준용", "201903671", "금융", "여", "ICT 서비스"));
+		empList.add(new Employee("정현영", "201903672", "금융", "여", "ICT 서비스"));
+		
+		ServletContext context = req.getServletContext();	//웹 어플리케이션을 관리하는 객체
+		req.setAttribute("empList", empList);				//empList 데이터를 화면으로 보내줄꺼야
+		RequestDispatcher dispatcher = context.getRequestDispatcher("/view/employee.jsp");	//req, resp 객체를 그대로 jsp 화면으로 전달, 어느 화면으로 보낼꺼냐~
+		dispatcher.forward(req, resp);	//그대로 화면으로 보내 주겠다.
+		
+		
+		
+	}
+}//end of class

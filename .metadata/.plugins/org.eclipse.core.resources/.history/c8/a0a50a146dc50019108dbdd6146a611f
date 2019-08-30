@@ -1,0 +1,25 @@
+package db.conn;
+
+import java.sql.Connection;
+
+public class DBConnection {
+	
+	//db connection을 하나만 만들어 계속 쓰게 하려고 static
+	private static Connection conn = null;
+	
+	public static void connect(){
+		
+		try {
+			//1.드라이버 로딩
+			//동적으로 객체를 생성
+			Class.forName("com.mysql.jdbc.Driver");	
+
+		} catch (ClassNotFoundException e) {	//동적으로 객체를 만들려는데 못찾는경우 날 수 있는 오류
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+	}//end of main
+}//end of class

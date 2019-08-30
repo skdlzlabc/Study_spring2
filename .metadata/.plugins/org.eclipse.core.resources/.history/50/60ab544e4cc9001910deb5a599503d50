@@ -1,0 +1,8 @@
+package com.hanwha.ict.dto;
+
+public class ServiceImpl implements IStudentService{
+	@Override
+	public String printAll(String str) {
+		return "printAll() :"+str;
+	}
+}

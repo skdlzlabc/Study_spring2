@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Student</title>
+</head>
+<body>
+<h1>
+	Student info
+</h1>
+<form action="">
+	<div>
+		<span>
+			Student name:<input type="text" name="name" />
+		</span>
+		<br>
+		<span>Student id: <input type="text" name="id"/></span>
+	</div>
+	<button value="submit">submit</button>
+		<p> Parameter Student Name is ${student.getName()}</p>
+		<p> Parameter Student Id is ${student.getId()}</p>
+	
+</form>
+<div>
+</div>
+</body>
+</html>

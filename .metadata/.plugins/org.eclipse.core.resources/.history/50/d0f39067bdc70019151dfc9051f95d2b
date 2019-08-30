@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="calculator" class="com.javalec.ex.Calculator" >
+	</bean>
+	
+	<bean id="mycalculator" class="com.javalec.ex.MyCalculator" >
+		<property name="calculator">
+			<ref bean="calculator"/>
+		</property>
+		<property name="firstNum" value="10"></property>
+		<property name="secondNum" value="2"></property>
+	</bean>
+	
+	
+</beans>
+<!-- 자바 클래스를 bean으로 올릴꺼야, -->
+<!-- 싱글톤 때문에 올려두고 컨테이너에 올려두고 써야해 -->
+<!-- class를 갖다쓰기위해 xml에 등록을 해야돼 -->
+

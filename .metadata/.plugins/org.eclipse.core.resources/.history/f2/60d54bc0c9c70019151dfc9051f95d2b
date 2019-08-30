@@ -1,0 +1,50 @@
+package com.javalec.ex;
+
+import java.util.List;
+
+public class HanwhaGroup {
+	private List<HanwhaCompany> hanwhaCompanyList;
+
+	public List<HanwhaCompany> getHanwhaCompanyList() {
+		return hanwhaCompanyList;
+	}
+
+	public void setHanwhaCompanyList(List<HanwhaCompany> hanwhaCompanyList) {
+		this.hanwhaCompanyList = hanwhaCompanyList;
+	}
+
+	public String getCompanySector(int i){
+		return hanwhaCompanyList.get(i).getCompanySector();
+	}
+	
+	public String getCompanyName(int i){
+		return hanwhaCompanyList.get(i).getCompanyName();
+	}
+	
+	public String getGroupPresident(int i){
+		return hanwhaCompanyList.get(i).getGroupPresident();
+	}
+	
+	public int getCompanyEmployeeCount(int i){
+		int sum =0;
+		for (HanwhaCompany h : hanwhaCompanyList) {
+			sum+= h.getCompanyEmployeeCount();
+		}
+		return sum;
+	}
+	
+	public String printAll(){
+		String str="사업부: "+String.format("%7s",hanwhaCompanyList.get(0).getCompanySector());
+		
+		for (int i = 0; i < hanwhaCompanyList.size(); i++) {
+			str += String.format("%15s", (i+1)+"."+hanwhaCompanyList.get(i).getCompanyName()) + "인원수- "+hanwhaCompanyList.get(i).getCompanyEmployeeCount()+" ";
+		}
+		return str;
+	}
+	
+	@Override
+	public String toString() {
+		return "HanwhaGroup [hanwhaCompanyList=" + hanwhaCompanyList + "]";
+	}
+	
+}

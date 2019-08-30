@@ -1,0 +1,39 @@
+//8.21
+package test;
+
+import java.util.Arrays;
+
+public class Test2 {
+	public static void main(String[] args) {
+//		1.String 문자열을 byte 배열로 변경하는 메소드를 찾아 호출
+		String str1 = "test1";
+		byte[] brr = str1.getBytes();
+		
+//		2.String 문자열의 길이를 알아내는 메소드는?
+		System.out.println("2. String 문자열의 길이 : "+ str1.length());
+		
+//		3.equals() 메소드와 compareTo() 메소드 호출해보기
+		String str2 = "test2";
+		if(str1.equals(str2)) System.out.println("3. 같습니다.");
+		if(str1.compareTo("test1")==0) System.out.println("3. 같습니다.");
+		
+//		4.문자열이 특정 단어로 시작하는지 확인하는 메소드를 찾아 호출해보기
+		if(str1.startsWith("t")) System.out.println("4. t로 시작합니다.");
+		
+//		5.특정 단어의 위치를 찾아내기 위한 메소드를 찾아 호출해보기
+		System.out.println("5. " + str1.indexOf("s"));
+		
+//		6.특정 문자열의 0번째부터 3번쨰까지 위치의 문자를 출력해보기
+		System.out.println("6. " + str1.substring(0,4));
+		 	
+//		7.공백이 있는 문자열의 공백을 *로 변환해보자
+		String str3 = "hi my name is woo.";
+		System.out.print("7.변환 전 문자열 :"+str3);
+		System.out.println(" => "+str3.replaceAll(" ", "*"));
+		
+//		8.문장을 단어의 배열로 변환할 수 있는 메소드를 찾아 호출해보기
+		String str4 = "hi my name is woo.";
+		String[] srr = str4.split(" ");
+		System.out.println("8.단어의 배열로 "+Arrays.toString(srr));
+	}
+}

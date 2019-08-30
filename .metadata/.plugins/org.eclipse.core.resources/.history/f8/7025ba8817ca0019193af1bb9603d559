@@ -1,0 +1,81 @@
+package com.hanwha.example.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.hanwha.example.dto.BoardVO;
+
+@Component
+public class BoardDao {
+
+	@Autowired
+	private SqlSession sqlSession;
+	
+	// 01. 게시글 작성
+	public void insert(BoardVO p) {
+		SqlSession session=null;
+		try {
+			session = sqlSession.
+//			session = sqlSession.openSession(false);
+			session.insert("dao.mapper.boardMapper.insert",p);	//mapper를 통해 select문 받아서 dao로 돌아옴
+			System.out.println("추가 성공");
+		} 
+		finally {
+			session.close();
+		}
+	}
+	// 02. 게시글 상세보기
+	public BoardVO selectOne(int code) {
+		// sql작업을 위해서 세션을 얻어와야함, 세션은 작업후에 바로 닫아줘야함
+		SqlSession session=null;
+		try {
+			session = sqlSession.openSession(false);
+			 BoardVO p = session.selectOne("dao.mapper.boardMapper.view",code);	//mapper를 통해 select문 받아서 dao로 돌아옴
+			 return p;
+		} 
+		finally {
+			session.close();
+		}
+	}
+	// 03. 게시글 수정
+	public void update(BoardVO p2) {
+		SqlSession session=null;
+		try {
+			session = sqlSession.openSession(false);
+			session.insert("dao.mapper.boardMapper.updateArticle",p2);	//mapper를 통해 select문 받아서 dao로 돌아옴
+			System.out.println("변경 성공");
+		} 
+		finally {
+			session.close();
+		}
+	}
+	// 04. 게시글 삭제
+	public void delete(int code) {
+		SqlSession session=null;
+		try {
+			session = sqlSession.openSession(false);
+			session.delete("dao.mapper.boardMapper.deleteArticle");	//mapper를 통해 select문 받아서 dao로 돌아옴
+			System.out.println("삭제 성공");
+		} 
+		finally {
+			session.close();
+		}
+	}
+	// 05. 게시글 전체 목록
+	public List<BoardVO> selectAll() {
+		List<BoardVO> list = null;
+		SqlSession session=null;
+		try {
+			session = sqlSession.openSession(false);
+			list = session.selectList("dao.mapper.boardMapper.listAll");	//mapper를 통해 select문 받아서 dao로 돌아옴
+			return list;
+		} 
+		finally {
+			session.close();
+		}
+	}
+	// 게시글 조회수 증가
+}

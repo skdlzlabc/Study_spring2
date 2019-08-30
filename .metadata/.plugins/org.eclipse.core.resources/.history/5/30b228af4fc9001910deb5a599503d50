@@ -1,0 +1,12 @@
+package com.hanwha.ict.dto;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+public class StudentContoller {
+	
+	public String studentCreate(@ModelAttribute("student") Student student, HttpServletRequest request){
+		System.out.println(student.toString());
+	}
+}

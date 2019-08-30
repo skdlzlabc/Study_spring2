@@ -1,0 +1,7 @@
+package com.hanwha.ict.dto;
+
+public class Parent {
+	private String presentParentName;
+	private int parentAge;
+	private String parentContact;
+}

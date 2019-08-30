@@ -1,0 +1,7 @@
+package com.hanwha.ict.dto;
+
+import java.util.List;
+
+public class HanwahGroup {
+	private List<HanwhaCompany> cmpList;
+}

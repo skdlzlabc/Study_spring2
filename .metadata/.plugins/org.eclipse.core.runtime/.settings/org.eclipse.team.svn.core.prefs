@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+externalMigrateFromAuthorizationDatabase/isMigrated=true
+migrateFromAuthorizationDatabase/isMigrated=true
+repositories/007fdbf201ca00191528d48da8c5bbbe=007fdbf201ca00191528d48da8c5bbbe;http\://172.26.59.36/svn/repo/trunk/java/board;http\://172.26.59.36/svn/repo/trunk/java/board;branches;tags;trunk;true;f57cc9fa-bdc8-4898-82b1-3ef555e779f1;http\://172.26.59.36/svn/repo;;false;;;0
+repositories/10de6dd763c80019196898406dd1c0d9=10de6dd763c80019196898406dd1c0d9;http\://172.26.59.36/svn/repo/trunk/java;http\://172.26.59.36/svn/repo/trunk/java;branches;tags;trunk;true;f57cc9fa-bdc8-4898-82b1-3ef555e779f1;http\://172.26.59.36/svn/repo;;false;;;0
+repositories/308ea29ea7c70019151dfc9051f95d2b=308ea29ea7c70019151dfc9051f95d2b;http\://172.26.59.36/svn/repo/trunk/java/spring_ex1;http\://172.26.59.36/svn/repo/trunk/java/spring_ex1;branches;tags;trunk;true;f57cc9fa-bdc8-4898-82b1-3ef555e779f1;http\://172.26.59.36/svn/repo;;false;;;0
+repositories/4098e92f24c2001913ca9dc3731dfc98=4098e92f24c2001913ca9dc3731dfc98;http\://172.26.59.36/svn/repo/trunk/sample;http\://172.26.59.36/svn/repo/trunk/sample;branches;tags;trunk;true;f57cc9fa-bdc8-4898-82b1-3ef555e779f1;http\://172.26.59.36/svn/repo;;false;;;0
+synch_info/contigous=true

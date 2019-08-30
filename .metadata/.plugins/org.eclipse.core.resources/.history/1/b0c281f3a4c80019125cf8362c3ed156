@@ -1,0 +1,16 @@
+package com.hanwha.ict.dto;
+
+import java.util.List;
+
+public class HanwahGroup {
+	private List<HanwhaCompany> cmpList;
+
+	public List<HanwhaCompany> getCmpList() {
+		return cmpList;
+	}
+
+	public void setCmpList(List<HanwhaCompany> cmpList) {
+		this.cmpList = cmpList;
+	}
+	
+}

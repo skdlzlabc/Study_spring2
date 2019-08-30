@@ -1,0 +1,5 @@
+package com.hanwha.ict.dto;
+
+public interface IStudentService {
+	public String printAll(String str);
+}

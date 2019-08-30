@@ -1,0 +1,36 @@
+package db.conn;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import db.conn.DBConnection;
+import db.dto.Employee;
+
+public class EmployeeDao {
+	public boolean insertData(Employee e) {
+		boolean isSuccess = true;
+		Connection conn = DBConnection.getConnection();
+		try {
+			PreparedStatement pstmt = conn
+					.prepareStatement("INSERT INTO students(name,empNo,dept,gender,duty)" + "VALUES(?,?,?,?,?)");
+			pstmt.setString(1, e.getName());
+			pstmt.setString(1, e.getEmpNo());
+			pstmt.setString(1, e.getDept());
+			pstmt.setString(1, e.getGender());
+			pstmt.setString(1, e.getDuty());
+			if (pstmt.executeUpdate() == 0) {
+				isSuccess = false;
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			isSuccess = false;
+		} finally {
+			DBConnection.closeConn();
+		}
+
+		return isSuccess;
+		e.getName();
+	}
+}

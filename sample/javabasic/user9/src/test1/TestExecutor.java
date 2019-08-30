@@ -1,0 +1,17 @@
+package test1;
+
+public class TestExecutor {
+	public static void main(String[] args) throws Exception {
+//		1.private 속성 생성후, setter getter 사용해보기
+		MethodTest mt = new MethodTest();
+		mt.setNum(10);								//1.setter
+		System.out.println(mt.getNum());			//1.getter
+		
+		System.out.println(mt.returnSomething());	//2.
+		mt.returnNothing();							//3.
+//		System.out.println(mt.num); 				//4.
+		mt.throwError(2);							//5. 구성요소 만족
+		System.out.println(mt.returnSomething(20));	//6. 오버로딩
+		
+	}
+}

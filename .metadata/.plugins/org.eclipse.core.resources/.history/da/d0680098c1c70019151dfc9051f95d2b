@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 	<bean id="calculator" class="com.javalec.ex.Calculator" > -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id="mycalculator" class="com.javalec.ex.MyCalculator" > -->
+<!-- 		<property name="calculator"> -->
+<!-- 			<ref bean="calculator"/> -->
+<!-- 		</property> -->
+<!-- 		<property name="firstNum" value="10"></property> -->
+<!-- 		<property name="secondNum" value="2"></property> -->
+<!-- 	</bean> -->
+	<bean id="mycalculator" class="com.javalec.ex.HanwhaGroup" >
+		<property name="calculator">
+			<ref bean="calculator"/>
+		</property>
+		<property name="firstNum" value="10"></property>
+		<property name="secondNum" value="2"></property>
+	</bean>
+	
+	<bean id="hanwhacompany" class="com.javalec.ex.HanwhaCompany" >
+		<property name="companyName" value="리조트"></property>
+		<property name="companySector" value="한화"></property>
+		<property name="groupPresident" value="김주희"></property>
+		<property name="companyEmployeeCount" value="200"></property>
+	</bean>
+	<bean id="hanwhacompany1" class="com.javalec.ex.HanwhaCompany" >
+		<property name="companyName" value="갤러리아"></property>
+		<property name="companySector" value="한화"></property>
+		<property name="groupPresident" value="이선행"></property>
+		<property name="companyEmployeeCount" value="400"></property>
+	</bean>
+	<bean id="hanwhacompany2" class="com.javalec.ex.HanwhaCompany" >
+		<property name="companyName" value="디펜스"></property>
+		<property name="companySector" value="한화"></property>
+		<property name="groupPresident" value="전우형"></property>
+		<property name="companyEmployeeCount" value="600"></property>
+	</bean>
+	<bean id="hanwhacompany3" class="com.javalec.ex.HanwhaCompany" >
+		<property name="companyName" value="에어로스페이스"></property>
+		<property name="companySector" value="한화"></property>
+		<property name="groupPresident" value="김소현"></property>
+		<property name="companyEmployeeCount" value="600"></property>
+	</bean>
+	<bean id="hanwhacompany4" class="com.javalec.ex.HanwhaCompany" >
+		<property name="companyName" value="투자증권"></property>
+		<property name="companySector" value="한화"></property>
+		<property name="groupPresident" value="박수지"></property>
+		<property name="companyEmployeeCount" value="600"></property>
+	</bean>
+	<bean id="hanwhacompany5" class="com.javalec.ex.HanwhaCompany" >
+		<property name="companyName" value="손해보험"></property>
+		<property name="companySector" value="한화"></property>
+		<property name="groupPresident" value="임무현"></property>
+		<property name="companyEmployeeCount" value="600"></property>
+	</bean>
+	
+</beans>
+<!-- 자바 클래스를 bean으로 올릴꺼야, -->
+<!-- 싱글톤 때문에 올려두고 컨테이너에 올려두고 써야해 -->
+<!-- class를 갖다쓰기위해 xml에 등록을 해야돼 -->
+
